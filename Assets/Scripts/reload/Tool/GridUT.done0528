@@ -1,0 +1,26 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class GridUT : MonoBehaviour {
+
+	private Grid<int> gridInt=new Grid<int>();
+	// Use this for initialization
+	void Start () {
+		gridInt.EsAdd(4,2,2,2);
+		gridInt.EsAdd(10,-5,11,0);
+		Debug.Log(gridInt.GetMinX());
+		Debug.Log(gridInt.GetMaxX());
+		Debug.Log(gridInt.GetSizeX());
+		Debug.Log(gridInt.IsCorrectIndex(-4,3,1));
+		Debug.Log(gridInt.GetMinY()+" , "+gridInt.GetMaxY());
+		Debug.Log(gridInt.SafeGet(0,0,0)==null);
+		//min,max初始值始终都是0，如果没有特别扩充，那么就一直都会是0，注意一下这里！
+		//所以扩充也最好把原点包括进去？
+		//不过正常来说也都是从0开始的
+	}
+	
+	// Update is called once per frame
+	void Update () {
+	
+	}
+}

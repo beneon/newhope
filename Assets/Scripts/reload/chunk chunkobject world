@@ -1,0 +1,43 @@
+#chunk ---
+
+bool generated
+Block[,,] blocks
+World world
+chunkX, chunkZ
+ChunkObject chunkObject
+
+---
+Chunk(world, ChunkX, chunkZ)
+	blocks [,,]
+
+SetBlockWorldPos
+
+SetBlock
+
+DelBlockWorldPos
+
+DelBlock
+
+GetBlockWorldPos
+
+GetBlock
+
+WorldToLocateX and WorldToLocateZ
+
+X & Z 
+
+ChunkObject Object
+
+#chunkObject ---
+
+World world
+Chunk chunk
+//chunk和world都是从chunk类得来
+//chunkobject主要是承接chunk和world，建立render所需要的内容。另外ChunkObject也建立了一个go
+//外界对chunkobject一般是通过chunk.Object来引用的
+
+#world ---
+
+
+
+
