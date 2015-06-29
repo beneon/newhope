@@ -12,6 +12,12 @@ public class Grid<T>
 		grid = new T[0,0,0];
 	}
 
+	public void Description(){
+		Debug.Log("the grid now is ranged in X "+minX+","+maxX
+							+"in Y "+minY+","+maxY
+							+"in Z "+minZ+","+maxZ);
+	}
+
 	public void Set (T obj, int x, int y,int z)
 	{
 		grid[z-minZ,y-minY,x-minX]=obj;
@@ -26,19 +32,17 @@ public class Grid<T>
 	{
 		if(!IsCorrectIndex(x,y,z))
 		{
+			Debug.Log("index not right! the index is "+x+","+y+","+z);
 			return default(T);
 		}
 		return grid[z-minZ,y-minY,x-minX];
 	}
-	public void EsAdd(T obj, int x, int y, int z)
-	{
-		AddOrReplace(obj,x,y,z);
-	}
+
 	public void AddOrReplace (T obj, int x,int y,int z)
 	{
+		Debug.Log(x+","+y+","+z);
 		int dMinX=0,dMinY=0,dMinZ=0;
 		int dMaxX=0,dMaxY=0,dMaxZ=0;
-
 		if(x<minX)
 		{
 			dMinX=x-minX;
@@ -54,15 +58,22 @@ public class Grid<T>
 		if(x>maxX)
 		{
 			dMaxX=x-maxX+1;
+		}else if(x==0 && maxX==0){
+			dMaxX=1;
 		}
 		if(y>maxY)
 		{
 			dMaxY=y-maxY+1;
+		}else if(y==0 && maxY==0){
+			dMaxY=1;
 		}
 		if(z>maxZ)
 		{
 			dMaxZ=z-maxZ+1;
+		}else if(z==0 && maxZ==0){
+			dMaxZ=1;
 		}
+
 		if(dMinX!=0 || dMinZ!=0 || dMinZ!=0 ||
 			dMaxX != 0 || dMaxY!=0|| dMaxZ != 0){
 			Increase (dMinX,dMinY,dMinZ,

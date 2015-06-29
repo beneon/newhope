@@ -53,3 +53,7 @@ Cmd: compileSnippet
   api=4 type=0 insize=2595 outsize=2233 kw=DIRECTIONAL ok=1
 Cmd: compileSnippet
   api=4 type=1 insize=2595 outsize=1827 kw=DIRECTIONAL ok=1
+Unhandled exception: Readfile from pipe failed. GLE=管道已结束。
+
+
+Quitting shader compiler process

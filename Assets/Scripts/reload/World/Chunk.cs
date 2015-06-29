@@ -16,6 +16,13 @@ public class Chunk {
 		this.world =world;
 		blocks = new Block[world.ChunkX, world.ChunkY, world.ChunkZ];
 	}
+	public void Description(){
+		Debug.Log(
+		"this chunk was positioned at "+chunkX+","+chunkY+","+chunkZ+
+		" the size of this chunk is "+
+		world.ChunkX+","+world.ChunkY+","+world.ChunkZ+", and generated is "+ generated
+		);
+	}
 
 	public void SetBlockWorldPos(Block block, int x, int y, int z)
 	{
@@ -110,7 +117,7 @@ public class Chunk {
 	}
 	*/
 
-	/*
+
 	public bool NeighboursReady ()
 	{
 		if(world.GetChunk (chunkX-1,chunkY-1,chunkZ-1).generated
@@ -146,7 +153,7 @@ public class Chunk {
 			return false;
 		}
 	}
-	*/
+	
 
 
 }
