@@ -8,7 +8,7 @@ public class World : MonoBehaviour {
 	private Grid<Chunk> grid = new Grid<Chunk> ();
 	//for testing purpose
 	private Chunk chunk;
-	public Vector3 chunkPos;
+	private Vector3 chunkPos;
 
 
 	public int ChunkX{
@@ -81,12 +81,7 @@ public class World : MonoBehaviour {
 		for(int x=(int)center.x-sightRadius;x<(int)center.x+sightRadius;x++){
 			for(int y=(int)center.y-sightRadius;y<(int)center.y+sightRadius;y++){
 			for(int z=(int)center.z-sightRadius;z<(int)center.z+sightRadius;z++){
-
-
-				Chunk chunkT = GetChunkWorldPos(x,y,z);
-				chunkT.Description();
-				grid.Description();
-				if(chunkT.generated)
+				if(GetChunkWorldPos(x,y,z).generated)
 					continue;
 				Vector3 current = new Vector3 (x,y,z);
 				float distance = (current-center).sqrMagnitude;
@@ -99,8 +94,11 @@ public class World : MonoBehaviour {
 					if(distance<_distance)
 						near=current;
 				}
+				GetChunkWorldPos(x,y,z).Description();
+				Debug.Log(near.Value);
 		}}}
 		if(near.HasValue){
+			Debug.Log(near.Value);
 			return GetChunkWorldPos(
 			(int)near.Value.x,(int)near.Value.y,(int)near.Value.z
 			);
@@ -112,16 +110,18 @@ public class World : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		int chunkPosX = Mathf.RoundToInt(chunkPos.x);
-		int chunkPosY = Mathf.RoundToInt(chunkPos.y);
-		int chunkPosZ = Mathf.RoundToInt(chunkPos.z);
-		for(int x=-5;x<10;x++){
-			GetChunk(x,0,0);
+		chunk = GetChunk(-2,1,0);
+		chunk.generated=true;
+		for(int x=chunk.X-1;x<=chunk.X+1;x++){
+			for(int y=chunk.Y-1;y<=chunk.Y+1;y++){
+				for(int z=chunk.Z-1;z<=chunk.Z+1;z++){
+					GetChunk(x,y,z).generated=true;
+					GetChunk(x,y,z).Description();
+				}
+			}
 		}
-				
-		//chunk = new Chunk(this, chunkPosX,chunkPosY,chunkPosZ);
-		//NearestEmptyChunk();
-		//chunk.NeighboursReady();
+
+		Debug.Log(chunk.NeighboursReady());
 	}
 
 	// Update is called once per frame

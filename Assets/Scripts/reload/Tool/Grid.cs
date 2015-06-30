@@ -11,11 +11,22 @@ public class Grid<T>
 	{
 		grid = new T[0,0,0];
 	}
+	public Grid(int minx, int maxx, int miny, int maxy, int minz, int maxz){
+		grid = new T[(maxx-minx),(maxy-miny),(maxz-minz)];
+		this.minX=minx;
+		this.maxX=maxx;
+		this.minY=miny;
+		this.maxY=maxy;
+		this.minZ=minz;
+		this.maxZ=maxz;
+	}
 
 	public void Description(){
 		Debug.Log("the grid now is ranged in X "+minX+","+maxX
 							+"in Y "+minY+","+maxY
-							+"in Z "+minZ+","+maxZ);
+							+"in Z "+minZ+","+maxZ
+							+"the size of it is "
+							+GetSizeX()+","+GetSizeY()+","+GetSizeZ());
 	}
 
 	public void Set (T obj, int x, int y,int z)
@@ -32,7 +43,8 @@ public class Grid<T>
 	{
 		if(!IsCorrectIndex(x,y,z))
 		{
-			Debug.Log("index not right! the index is "+x+","+y+","+z);
+			//这个是看哪里index不对
+			//Debug.Log("index not right! the index is "+x+","+y+","+z);
 			return default(T);
 		}
 		return grid[z-minZ,y-minY,x-minX];
@@ -40,7 +52,6 @@ public class Grid<T>
 
 	public void AddOrReplace (T obj, int x,int y,int z)
 	{
-		Debug.Log(x+","+y+","+z);
 		int dMinX=0,dMinY=0,dMinZ=0;
 		int dMaxX=0,dMaxY=0,dMaxZ=0;
 		if(x<minX)
@@ -55,23 +66,17 @@ public class Grid<T>
 		{
 			dMinZ=z-minZ;
 		}
-		if(x>maxX)
+		if(x>=maxX)
 		{
 			dMaxX=x-maxX+1;
-		}else if(x==0 && maxX==0){
-			dMaxX=1;
 		}
-		if(y>maxY)
+		if(y>=maxY)
 		{
 			dMaxY=y-maxY+1;
-		}else if(y==0 && maxY==0){
-			dMaxY=1;
 		}
-		if(z>maxZ)
+		if(z>=maxZ)
 		{
 			dMaxZ=z-maxZ+1;
-		}else if(z==0 && maxZ==0){
-			dMaxZ=1;
 		}
 
 		if(dMinX!=0 || dMinZ!=0 || dMinZ!=0 ||
@@ -123,7 +128,7 @@ public class Grid<T>
 	{
 		if(x<minX || y<minY || z<minZ)
 			return false;
-		if(x>maxX || y>maxY || z>maxZ)
+		if(x>=maxX || y>=maxY || z>=maxZ)
 			return false;
 		return true;
 	}
