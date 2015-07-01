@@ -108,20 +108,35 @@ public class World : MonoBehaviour {
 
 	}
 
+	public void UpdateBlockWorldPos(int x, int y, int z){
+		if(GetBlock(x+1,y,z)!=null){
+			GetBlock(x+1,y,z).Update(this,x,y,z);
+		}
+		if(GetBlock(x,y+1,z)!=null){
+			GetBlock(x,y+1,z).Update(this,x,y,z);
+		}
+		if(GetBlock(x,y,z+1)!=null){
+			GetBlock(x,y,z+1).Update(this,x,y,z);
+		}
+		if(GetBlock(x-1,y,z)!=null){
+			GetBlock(x-1,y,z).Update(this,x,y,z);
+		}
+		if(GetBlock(x,y-1,z)!=null){
+			GetBlock(x,y-1,z).Update(this,x,y,z);
+		}
+		if(GetBlock(x,y,z-1)!=null){
+			GetBlock(x,y,z-1).Update(this,x,y,z);
+		}
+		//这里应该是告诉周围六个相邻体素该体素出现了新的状况，应该相应进行调整了
+	}
+
+	public void RefreshChunkWorldPos(int x, int y, int z){
+		// 这一块等到chunk的object弄好了再说
+	}
+
 	// Use this for initialization
 	void Start () {
-		chunk = GetChunk(-2,1,0);
-		chunk.generated=true;
-		for(int x=chunk.X-1;x<=chunk.X+1;x++){
-			for(int y=chunk.Y-1;y<=chunk.Y+1;y++){
-				for(int z=chunk.Z-1;z<=chunk.Z+1;z++){
-					GetChunk(x,y,z).generated=true;
-					GetChunk(x,y,z).Description();
-				}
-			}
-		}
 
-		Debug.Log(chunk.NeighboursReady());
 	}
 
 	// Update is called once per frame
