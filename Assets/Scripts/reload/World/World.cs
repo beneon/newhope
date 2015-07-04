@@ -5,10 +5,10 @@ public class World : MonoBehaviour {
 	public Vector3 chunkSize;
 	public GameObject mainCamera;
 	public int sightRadius;
+	public IRenderer renderer = new MarchRenderer();
+	public Material[] materials;
 	private Grid<Chunk> grid = new Grid<Chunk> ();
-	//for testing purpose
-	private Chunk chunk;
-	private Vector3 chunkPos;
+
 
 
 	public int ChunkX{

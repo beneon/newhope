@@ -49,6 +49,9 @@
      <Compile Include="Assets\PostProcesses\Bloom\Bloom.cs" />
      <Compile Include="Assets\PostProcesses\Bloom\BloomObject.cs" />
      <Compile Include="Assets\PostProcesses\Shafts\Shafts.cs" />
+     <Compile Include="Assets\Scripts\reload\Renderer\IRenderer.cs" />
+     <Compile Include="Assets\Scripts\reload\Renderer\MarchRenderer.cs" />
+     <Compile Include="Assets\Scripts\reload\Renderer\TerrainRenderer.cs" />
      <Compile Include="Assets\Scripts\reload\Tool\Grid.cs" />
      <Compile Include="Assets\Scripts\reload\Tool\OverviewCamera.cs" />
      <Compile Include="Assets\Scripts\reload\Tool\Player.cs" />
