@@ -5,13 +5,15 @@ public class World : MonoBehaviour {
 	public Vector3 chunkSize;
 	public GameObject mainCamera;
 	public int sightRadius;
-	public IRenderer renderer = new MarchRenderer();
+	//public IRenderer renderer = new MarchRenderer();
 	public Material[] materials;
 	private Grid<Chunk> grid = new Grid<Chunk> ();
-	
+	private Chunk chunk;
+
 	// Use this for initialization
 	void Start () {
-
+		chunk = GetChunk(0,0,0);
+		//Corner(4,5,2);
 	}
 
 	// Update is called once per frame

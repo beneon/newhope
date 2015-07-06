@@ -1,15 +1,47 @@
-Base path: /Applications/Unity/Unity.app/Contents
-Pipe name: \\.\pipe\UnityShaderCompiler-1--1592618540
+Base path: C:/Program Files (x86)/Unity/Editor/Data
+Pipe name: \\.\pipe\UnityShaderCompiler-1-27380
 Cmd: getPlatforms
 Cmd: preprocess
-  insize=2360 outsize=867 ok=1
+  insize=2453 outsize=899 ok=1
+Cmd: compileSnippet
+  api=1 type=0 insize=1795 outsize=169 kw=SOFTPARTICLES_OFF ok=1
+Cmd: compileSnippet
+  api=1 type=1 insize=1795 outsize=511 kw=SOFTPARTICLES_OFF ok=1
 Cmd: preprocess
-  insize=2255 outsize=1053 ok=1
+  insize=2360 outsize=1104 ok=1
 Cmd: preprocess
-  insize=2360 outsize=867 ok=1
+  insize=2453 outsize=899 ok=1
+Cmd: compileSnippet
+  api=1 type=0 insize=1795 outsize=169 kw=SOFTPARTICLES_OFF ok=1
+Cmd: compileSnippet
+  api=1 type=1 insize=1795 outsize=511 kw=SOFTPARTICLES_OFF ok=1
 Cmd: preprocess
-  insize=793 outsize=1315 ok=1
+  insize=830 outsize=1329 ok=1
+Cmd: compileSnippet
+  api=1 type=0 insize=2595 outsize=414 kw=POINT ok=1
+Cmd: compileSnippet
+  api=1 type=1 insize=2595 outsize=720 kw=POINT ok=1
+Cmd: compileSnippet
+  api=1 type=0 insize=2009 outsize=190 kw= ok=1
+Cmd: compileSnippet
+  api=1 type=1 insize=2009 outsize=118 kw= ok=1
+Cmd: compileSnippet
+  api=1 type=0 insize=4336 outsize=693 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
+Cmd: compileSnippet
+  api=1 type=1 insize=4336 outsize=578 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
 Cmd: preprocess
-  insize=2360 outsize=867 ok=1
+  insize=2453 outsize=898 ok=1
+Cmd: compileSnippet
+  api=1 type=0 insize=1795 outsize=169 kw=SOFTPARTICLES_OFF ok=1
+Cmd: compileSnippet
+  api=1 type=1 insize=1795 outsize=511 kw=SOFTPARTICLES_OFF ok=1
 Cmd: preprocess
-  insize=2360 outsize=867 ok=1
+  insize=2453 outsize=898 ok=1
+Cmd: compileSnippet
+  api=1 type=0 insize=1795 outsize=169 kw=SOFTPARTICLES_OFF ok=1
+Cmd: compileSnippet
+  api=1 type=1 insize=1795 outsize=511 kw=SOFTPARTICLES_OFF ok=1
+Cmd: compileSnippet
+  api=1 type=0 insize=2595 outsize=307 kw=DIRECTIONAL ok=1
+Cmd: compileSnippet
+  api=1 type=1 insize=2595 outsize=585 kw=DIRECTIONAL ok=1
