@@ -13,9 +13,51 @@ public class World : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		chunk = GetChunk(0,0,0);
-		//Corner(4,5,2);
+		Chunk chunk2 = GetChunk(1,0,0);
+		chunk2.generated = true;
+		chunk.SetBlock(new Dirt(),3,3,3);
+		Debug.Log(Corner(4,3,3));
 	}
+	private bool Corner(int x, int y, int z){
+		if(x >= 0 && x < ChunkX && y >= 0 && y < ChunkY && z >= 0 && z < ChunkZ){
+			if(chunk.GetBlock(x,y,z) != null){
+				//Debug.Log("inChunk, block filled");
+				return false;
+			}else{
+				//Debug.Log("inChunk, block is null");
+				return true;
+			}
+		}else{
+			Chunk neighbourChunk = null;
+			int ix = chunk.X, iy = chunk.Y, iz = chunk.Z;
+			if(x<0)
+			ix--;
+			if(y<0)
+			iy--;
+			if(z<0)
+			iz--;
+			if(x>=ChunkX)
+			ix++;
+			if(y>=ChunkY)
+			iy++;
+			if(z>=ChunkZ)
+			iz++;
+			neighbourChunk = GetChunk(ix,iy,iz);
+			if(neighbourChunk.generated){
 
+				if(neighbourChunk.GetBlockWorldPos(x,y,z)!=null){
+					//Debug.Log("not in Chunk, chunk generated, block filled");
+					return false;
+				}else{
+					//Debug.Log("not in Chunk, chunk generated, block is null");
+					return true;
+				}
+			}else{
+				//Debug.Log("not in Chunk, chunk not generated");
+				return false;
+			}
+		}
+	}
 	// Update is called once per frame
 	void Update () {
 
