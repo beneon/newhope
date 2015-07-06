@@ -8,8 +8,16 @@ public class World : MonoBehaviour {
 	public IRenderer renderer = new MarchRenderer();
 	public Material[] materials;
 	private Grid<Chunk> grid = new Grid<Chunk> ();
+	
+	// Use this for initialization
+	void Start () {
 
+	}
 
+	// Update is called once per frame
+	void Update () {
+
+	}
 
 	public int ChunkX{
 		get{return Mathf.RoundToInt(chunkSize.x);}
@@ -134,13 +142,5 @@ public class World : MonoBehaviour {
 		// 这一块等到chunk的object弄好了再说
 	}
 
-	// Use this for initialization
-	void Start () {
 
-	}
-
-	// Update is called once per frame
-	void Update () {
-
-	}
 }
