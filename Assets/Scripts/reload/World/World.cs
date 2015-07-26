@@ -12,8 +12,16 @@ public class World : MonoBehaviour {
 	private Chunk chunk;
 
 	void Start () {
-		chunk = GetChunk(0,0,1);
-		chunk.Description();
+		for(int x=0;x<3;x++){
+			for(int y=0;y<3;y++){
+				for(int z=0;z<3;z++){
+					Chunk chunkTemp = GetChunk(x,y,z);
+					chunkTemp.generated=true;
+					chunkTemp.FillChunkWithBlock();
+		}}}
+		renderer.Initialize();
+		renderer.Render(this,GetChunk(2,2,2));
+		
 	}
 
 

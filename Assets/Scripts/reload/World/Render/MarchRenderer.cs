@@ -22,9 +22,10 @@ public class MarchRenderer : IRenderer {
 			this.positions = new Vector3[8];
 		}
 
-		private bool Corner (int x,int y,int z)
+		public bool Corner (int x,int y,int z)
 		{
 			//判定isosurface的哦！
+			//现在先对于三轴同样对待
 			if(y<0 && y>=world.ChunkY){
 				return false;
 			}

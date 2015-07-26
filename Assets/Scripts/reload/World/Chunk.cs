@@ -23,6 +23,14 @@ public class Chunk {
 		world.ChunkX+","+world.ChunkY+","+world.ChunkZ+", and generated is "+ generated
 		);
 	}
+	public void FillChunkWithBlock(){
+		for(int x=0;x<world.ChunkX;x++){
+			for(int y=0;y<world.ChunkY;y++){
+				for(int z=0;z<world.ChunkZ;z++){
+					if(x%2==0 && y%2==0 && z%2==0)
+						SetBlock(new Dirt(),x,y,z);
+		}}}
+	}
 
 	public void SetBlockWorldPos(Block block, int x, int y, int z)
 	{
