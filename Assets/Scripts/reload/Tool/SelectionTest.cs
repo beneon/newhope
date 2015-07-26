@@ -4,7 +4,7 @@ using System.Collections;
 public class SelectionTest : MonoBehaviour {
 	public GameObject selection;
 	private Vector3? start = null;
-	private GameObject gameObject = null;
+	private GameObject selectObject = null;
 
 	private Vector3? MouseToWorld (Vector3 v)
 	{
@@ -38,12 +38,12 @@ public class SelectionTest : MonoBehaviour {
 			}
 		}
 	}
-	
+
 
 	void Update()
 	{
-		if(gameObject != null)
-			Destroy(gameObject);
+		if(selectObject != null)
+			Destroy(selectObject);
 		if(Input.GetMouseButtonDown(0)){
 			//GetMouseButtonDown(0) means the left key was pressed
 			start = MouseToWorld (Input.mousePosition);
@@ -52,8 +52,8 @@ public class SelectionTest : MonoBehaviour {
 		if(Input.GetMouseButton(0)){
 			//GetMouseButton是按下不放，GetMouseButtonDown是仅仅在按下的那一桢才true，
 			//除非松开再按，否则一直还是false
-			gameObject = new GameObject (
-				"Selection @" + Mathf.RoundToInt (start.Value.x) 
+			selectObject = new GameObject (
+				"Selection @" + Mathf.RoundToInt (start.Value.x)
 				+ ", " + Mathf.RoundToInt (start.Value.z)
 				);
 			if(start.HasValue){
@@ -65,11 +65,11 @@ public class SelectionTest : MonoBehaviour {
 					for (int x=selectionArea.startX; x<= selectionArea.endX; x++){
 						for(int z = selectionArea.startZ; z<= selectionArea.endZ;z++){
 							GameObject o = (GameObject)Instantiate (
-								selection, 
+								selection,
 								new Vector3 (x, Mathf.Floor (start.Value.y),z),
 								Quaternion.identity
 								);
-							o.transform.parent = gameObject.transform;
+							o.transform.parent = selectObject.transform;
 						}
 					}
 				}

@@ -20,8 +20,8 @@ public class ChunkObject : MonoBehaviour {
 		gameObject.transform.position = new Vector3(chunk.WorldX, chunk.WorldY, chunk.WorldZ);
 		gameObject.transform.rotation = Quaternion.identity;
 		gameObject.AddComponent<MeshRenderer> ().sharedMaterials = world.materials;
-		ChunkObject chunkObject = gameObject.AddComponent<ChunkObject>;
-		chunkObject.Initialize(world, chunk, gameObject.AddComponent<MeshFilter>, gameObject.AddComponent<MeshCollider>());
+		ChunkObject chunkObject = gameObject.AddComponent<ChunkObject> ();
+		chunkObject.Initialize(world, chunk, gameObject.AddComponent<MeshFilter> (), gameObject.AddComponent<MeshCollider>());
 		return chunkObject;
 	}
 
@@ -36,17 +36,17 @@ public class ChunkObject : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(chunk.NeighboursReady() && this.dirty){
-			meshFilter.sharedMesh = RenderMesh();
+			//meshFilter.sharedMesh = RenderMesh();
 			meshCollider.sharedMesh = null;
 			meshCollider.sharedMesh = meshFilter.sharedMesh;
 			this.dirty = false;
 		}
 	}
 
-	private Mesh RenderMesh(){
+	/*private Mesh RenderMesh(){
 		world.renderer.Render (world, chunk);
 		return world.renderer.ToMesh (meshFilter.sharedMesh);
-	}
+	}*/
 
 	public void MakeDirty(){
 		this.dirty =  true;

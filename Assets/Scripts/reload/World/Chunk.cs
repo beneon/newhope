@@ -6,7 +6,7 @@ public class Chunk {
 	public Block[,,] blocks;
 	private World world;
 	private int chunkX, chunkY, chunkZ;
-	private ChunkObject chunkObject;
+	//private ChunkObject chunkObject;
 
 	public Chunk (World world, int chunkX, int chunkY, int chunkZ)
 	{
@@ -106,14 +106,14 @@ public class Chunk {
 		get{return chunkZ*world.ChunkZ;}
 	}
 
-	public ChunkObject Object {
+	/*public ChunkObject Object {
 		get{
 			if(chunkObject == null){
 				chunkObject = ChunkObject.Instance (world,this);
 			}
 			return chunkObject;
 		}
-	}
+	}*/
 
 
 	public bool NeighboursReady ()

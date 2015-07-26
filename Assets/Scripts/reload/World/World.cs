@@ -1,15 +1,27 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class World : MonoBehaviour {
 	public Vector3 chunkSize;
 	public GameObject mainCamera;
 	public int sightRadius;
-	public IRenderer renderer = new MarchRenderer();
+	public IRenderer renderer = new TestRenderer();
 	public Material[] materials;
 	private Grid<Chunk> grid = new Grid<Chunk> ();
+	//testing purpose
+	private Chunk chunk;
+
+	void Start () {
+		chunk = GetChunk(0,0,1);
+		chunk.Description();
+	}
 
 
+
+	// Update is called once per frame
+	void Update () {
+
+	}
 
 	public int ChunkX{
 		get{return Mathf.RoundToInt(chunkSize.x);}
@@ -135,12 +147,5 @@ public class World : MonoBehaviour {
 	}
 
 	// Use this for initialization
-	void Start () {
 
-	}
-
-	// Update is called once per frame
-	void Update () {
-
-	}
 }
